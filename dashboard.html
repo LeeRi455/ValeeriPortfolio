@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UI Dashboard – Valeeri Kvasnin</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #0f0f1f;
+      color: #f3f3f3;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .border-glow {
+      border: 2px solid #a259ff;
+      box-shadow: 0 0 15px #a259ff60;
+    }
+    .gold-text { color: #FFD700; }
+    .purple-accent { color: #a259ff; }
+  </style>
+</head>
+<body class="min-h-screen p-6 bg-gradient-to-b from-black to-gray-900">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold gold-text">UI Dashboard</h1>
+    <a href="index.html" class="text-sm purple-accent underline hover:text-yellow-400 transition">← Back to Portfolio</a>
+  </header>
+
+  <!-- Dashboard Grid -->
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="border-glow bg-gray-900 p-4 rounded-xl">
+      <h2 class="font-bold text-lg mb-2">📊 Real-Time Analytics</h2>
+      <p class="text-gray-300 text-sm">Live user traffic and behavior tracking across platforms.</p>
+    </div>
+
+    <div class="border-glow bg-gray-900 p-4 rounded-xl">
+      <h2 class="font-bold text-lg mb-2">⚙️ System Controls</h2>
+      <p class="text-gray-300 text-sm">Modular settings panel with toggles and live system updates.</p>
+    </div>
+
+    <div class="border-glow bg-gray-900 p-4 rounded-xl">
+      <h2 class="font-bold text-lg mb-2">📈 Metrics Overview</h2>
+      <p class="text-gray-300 text-sm">Visual breakdown of performance indicators and KPIs.</p>
+    </div>
+
+    <div class="border-glow bg-gray-900 p-4 rounded-xl">
+      <h2 class="font-bold text-lg mb-2">🧠 AI Activity Feed</h2>
+      <p class="text-gray-300 text-sm">Latest decisions made by system AI and user recommendations.</p>
+    </div>
+
+    <div class="border-glow bg-gray-900 p-4 rounded-xl">
+      <h2 class="font-bold text-lg mb-2">🌐 Network Status</h2>
+      <p class="text-gray-300 text-sm">System uptime, ping stats, and connection health indicators.</p>
+    </div>
+
+    <div class="border-glow bg-gray-900 p-4 rounded-xl">
+      <h2 class="font-bold text-lg mb-2">📦 Resource Manager</h2>
+      <p class="text-gray-300 text-sm">Storage usage, CPU, memory and background processes.</p>
+    </div>
+  </main>
+
+</body>
+</html>

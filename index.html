@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valeeri Kvasnin - Creative Front-End Developer</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #1a1a2e, #0f0f1f);
+      color: #f3f3f3;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .gold-text {
+      color: #FFD700;
+    }
+    .purple-accent {
+      color: #a259ff;
+    }
+    .border-glow {
+      border: 2px solid #a259ff;
+      box-shadow: 0 0 15px #a259ff50;
+    }
+    .nav-link {
+      @apply text-gray-300 hover:text-[#FFD700] transition-colors duration-300;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-center">
+
+  <!-- Navigation -->
+  <nav class="w-full p-4 flex justify-center gap-6 bg-gray-900 border-b border-purple-700 shadow-md sticky top-0 z-50">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="max-w-2xl mx-auto my-16">
+    <h1 class="text-5xl font-bold gold-text transition-transform duration-500 hover:scale-105">Valeeri Kvasnin</h1>
+    <p class="text-xl mt-4 purple-accent">Creative Front-End Developer</p>
+    <p class="mt-6 text-gray-300">Building futuristic and bold web experiences with precision and flair.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-2xl mx-auto mb-16 border-glow p-6 rounded-2xl transition-transform hover:scale-[1.02] duration-300">
+    <h2 class="text-3xl font-semibold gold-text mb-4">About Me</h2>
+    <p class="text-gray-300">I’m Valeeri, a front-end developer who combines creativity with technical prowess to craft immersive, warrior-like digital worlds. I thrive on bold aesthetics, clean code, and futuristic design.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-4xl mx-auto mb-16">
+  <h2 class="text-3xl font-semibold gold-text mb-6">Projects</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <div class="border-glow p-4 rounded-xl hover:scale-[1.02] transition-transform duration-300">
+      <h3 class="text-xl purple-accent font-bold">Landing Page</h3>
+      <p class="text-gray-400 mt-2">
+        An interactive landing page inspired by sci-fi armor aesthetics.
+        <a href="scifi-landing.html" class="underline text-[#FFD700] hover:text-purple-400 transition-colors">View project →</a>
+      </p>
+    </div>
+
+    <div class="border-glow p-4 rounded-xl hover:scale-[1.02] transition-transform duration-300">
+      <h3 class="text-xl purple-accent font-bold">UI Dashboard</h3>
+      <p class="text-gray-400 mt-2">
+        A sleek UI dashboard designed for speed and control.
+        <a href="dashboard.html" class="underline text-[#FFD700] hover:text-purple-400 transition-colors">View project →</a>
+      </p>
+    </div>
+
+    <div class="border-glow p-4 rounded-xl hover:scale-[1.02] transition-transform duration-300">
+      <h3 class="text-xl purple-accent font-bold">Cafe Shop Website</h3>
+      <p class="text-gray-400 mt-2">
+        An interactive cafe shop website with order management.
+        <a href="cafe.html" class="underline text-[#FFD700] hover:text-purple-400 transition-colors">View project →</a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="max-w-2xl mx-auto mb-16 border-glow p-6 rounded-2xl hover:scale-[1.02] transition-transform duration-300">
+    <h2 class="text-3xl font-semibold gold-text mb-4">Skills</h2>
+    <ul class="grid grid-cols-2 gap-4 text-gray-300">
+      <li class="hover:text-[#FFD700] transition-colors">HTML</li>
+      <li class="hover:text-[#FFD700] transition-colors">CSS / Tailwind</li>
+      <li class="hover:text-[#FFD700] transition-colors">JavaScript</li>
+      <li class="hover:text-[#FFD700] transition-colors">Responsive Design</li>
+      <li class="hover:text-[#FFD700] transition-colors">UI/UX Principles</li>
+      <li class="hover:text-[#FFD700] transition-colors">Figma to Code</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-2xl mx-auto border-glow p-6 rounded-2xl hover:scale-[1.02] transition-transform duration-300">
+    <h2 class="text-3xl font-semibold gold-text mb-4">Contact</h2>
+    <p class="text-gray-300 mb-4">Want to collaborate or just say hi? Reach out!</p>
+    <p class="purple-accent font-bold">valeeri@example.com</p>
+  </section>
+
+</body>
+</html>

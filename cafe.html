@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cafe Shop - Cozy Coffee Experience</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #6B46C1, #B794F4);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+    .gold-text {
+      color: #FFD700;
+    }
+    .purple-accent {
+      color: #a259ff;
+    }
+    .btn {
+      background: #FFD700;
+      color: #1a1a2e;
+      padding: 0.6rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #b38f00;
+      color: #fff;
+    }
+    .item-card:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-6 bg-purple-900 shadow-lg flex justify-between items-center">
+    <h1 class="text-3xl font-bold gold-text">Cozy Cafe</h1>
+    <nav>
+      <a href="index.html" class="text-white hover:text-[#FFD700] transition-colors mx-3">Home</a>
+      <a href="#menu" class="text-white hover:text-[#FFD700] transition-colors mx-3">Menu</a>
+      <a href="#order" class="text-white hover:text-[#FFD700] transition-colors mx-3">Order</a>
+      <a href="#contact" class="text-white hover:text-[#FFD700] transition-colors mx-3">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="flex-grow flex flex-col items-center justify-center p-12 text-center">
+    <h2 class="text-4xl font-extrabold mb-4 purple-accent">Welcome to Cozy Cafe</h2>
+    <p class="max-w-xl mb-8">Experience the warmest coffee in town, with a vibe that feels like home.</p>
+    <a href="#menu" class="btn">See Our Menu</a>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="bg-purple-700 p-10 rounded-xl max-w-4xl mx-auto mb-16 shadow-lg">
+    <h3 class="text-3xl gold-text mb-8 font-semibold text-center">Our Menu</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+      <div class="item-card bg-purple-900 p-6 rounded-lg shadow-md cursor-pointer transition-transform duration-300" data-name="Espresso" data-price="3.5">
+        <h4 class="text-xl font-bold mb-2">Espresso</h4>
+        <p>Rich, dark, and bold espresso to kickstart your day.</p>
+        <p class="mt-2 font-semibold gold-text">$3.50</p>
+      </div>
+      <div class="item-card bg-purple-900 p-6 rounded-lg shadow-md cursor-pointer transition-transform duration-300" data-name="Cappuccino" data-price="4.5">
+        <h4 class="text-xl font-bold mb-2">Cappuccino</h4>
+        <p>Creamy cappuccino topped with frothy milk and a sprinkle of cocoa.</p>
+        <p class="mt-2 font-semibold gold-text">$4.50</p>
+      </div>
+      <div class="item-card bg-purple-900 p-6 rounded-lg shadow-md cursor-pointer transition-transform duration-300" data-name="Vanilla Latte" data-price="4.75">
+        <h4 class="text-xl font-bold mb-2">Vanilla Latte</h4>
+        <p>Smooth latte infused with vanilla syrup for a sweet delight.</p>
+        <p class="mt-2 font-semibold gold-text">$4.75</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Section -->
+  <section id="order" class="max-w-4xl mx-auto mb-16 p-6 bg-purple-700 rounded-xl shadow-lg">
+    <h3 class="text-3xl gold-text mb-6 font-semibold text-center">Your Order</h3>
+    <div id="order-list" class="text-white mb-6">
+      <p class="text-center text-gray-300">Click on a coffee to add it to your order.</p>
+    </div>
+    <div class="text-center">
+      <button id="place-order-btn" class="btn" disabled>Place Order</button>
+    </div>
+    <p id="order-message" class="mt-4 text-center font-semibold gold-text"></p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-2xl mx-auto p-6 text-center text-white">
+    <h3 class="text-3xl gold-text mb-6 font-semibold">Contact Us</h3>
+    <p class="mb-4">Questions, orders, or just want to say hello? Reach out!</p>
+    <p>Email: <a href="mailto:contact@cozycafe.com" class="underline hover:text-[#FFD700]">contact@cozycafe.com</a></p>
+    <p>Phone: <a href="tel:+1234567890" class="underline hover:text-[#FFD700]">+1 (234) 567-890</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-purple-900 text-center text-white p-4 mt-auto">
+    &copy; 2025 Cozy Cafe. Crafted with care by Valeeri Kvasnin.
+  </footer>
+
+  <script>
+    const orderList = document.getElementById('order-list');
+    const placeOrderBtn = document.getElementById('place-order-btn');
+    const orderMessage = document.getElementById('order-message');
+    const items = document.querySelectorAll('.item-card');
+
+    let order = {};
+
+    function renderOrder() {
+      if (Object.keys(order).length === 0) {
+        orderList.innerHTML = '<p class="text-center text-gray-300">Click on a coffee to add it to your order.</p>';
+        placeOrderBtn.disabled = true;
+        return;
+      }
+
+      placeOrderBtn.disabled = false;
+
+      let html = '<ul class="space-y-4">';
+      let total = 0;
+
+      for (const [name, item] of Object.entries(order)) {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+
+        html += `
+          <li class="flex justify-between items-center bg-purple-900 p-4 rounded-lg shadow-md">
+            <div>
+              <h4 class="font-semibold text-lg">${name}</h4>
+              <p>Price: $${item.price.toFixed(2)}</p>
+              <p>Quantity: 
+                <button class="qty-btn text-yellow-300 font-bold px-2" data-action="decrease" data-name="${name}">-</button>
+                <span class="mx-2">${item.qty}</span>
+                <button class="qty-btn text-yellow-300 font-bold px-2" data-action="increase" data-name="${name}">+</button>
+              </p>
+            </div>
+            <div class="font-bold gold-text">$${itemTotal.toFixed(2)}</div>
+          </li>
+        `;
+      }
+      html += '</ul>';
+      html += `<p class="text-right font-bold gold-text mt-6 text-xl">Total: $${total.toFixed(2)}</p>`;
+
+      orderList.innerHTML = html;
+
+      // Add event listeners for quantity buttons
+      document.querySelectorAll('.qty-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const action = e.target.dataset.action;
+          const name = e.target.dataset.name;
+
+          if (action === 'increase') {
+            order[name].qty++;
+          } else if (action === 'decrease') {
+            order[name].qty--;
+            if (order[name].qty <= 0) {
+              delete order[name];
+            }
+          }
+          renderOrder();
+        });
+      });
+    }
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const name = item.dataset.name;
+        const price = parseFloat(item.dataset.price);
+
+        if (order[name]) {
+          order[name].qty++;
+        } else {
+          order[name] = { price: price, qty: 1 };
+        }
+        renderOrder();
+        orderMessage.textContent = '';
+      });
+    });
+
+    placeOrderBtn.addEventListener('click', () => {
+      if (Object.keys(order).length === 0) return;
+
+      // Simulate sending order
+      orderMessage.textContent = 'Thank you for your order! We\'ll start preparing it shortly. ☕️';
+      order = {};
+      renderOrder();
+    });
+
+    renderOrder();
+  </script>
+
+</body>
+</html>
